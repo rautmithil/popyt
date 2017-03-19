@@ -3,5 +3,7 @@ The progrm uses these libraries for processing data from sensors. Download these
 
 ## Sensors
 ADXL345: Accelerometer sensor, measures roll pitch
+
 HMC5883L: Magnetometer sensor, measures yaw
+
 ITG3200: Gyro sensor, measures angular acceleration
