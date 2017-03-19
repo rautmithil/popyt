@@ -53,6 +53,8 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 ![alt tag](https://cloud.githubusercontent.com/assets/13759991/24085360/12a135d2-0cd1-11e7-822c-2a006b77c7a7.JPG)
 
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/24086033/d4ac6668-0cdd-11e7-929e-72c978b765ea.png)
+
 # Progress so far
 
 1.  Tested code with acceleroemeter ADXL345 and Arduino. Realised an accelerometer only gives the roll, pitch values of a sensor. Need a magnetormeter for the yaw angle.
