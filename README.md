@@ -63,6 +63,10 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 3. The weight sensor has a black blob, a.k.a Chip-on-board whose signals cannot be tapped without breaking the chip. Hence the circuit cannot be used however, I plan to utilize the load cell from the scale and attach a wheatstone bridge with amplifier to get a proper reading for the very small deviation coming from the load cell.
 
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/24086088/1b39686e-0cdf-11e7-813e-c13ea7e8f84e.jpeg)
+
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/24086087/1b3772e8-0cdf-11e7-986c-c18c97e3a388.jpeg)
+
 5. Ordered an IMU sensor (GY-85) which has all the sensors required for determining the orientation of an object.
 
 6. Tested code with GY-85 and Arduino. Able to receive values for roll, pitch and yaw. Looks good to go into the gadget. One issue is that it needs to be calibrated at the beginning of a power cycle. 
