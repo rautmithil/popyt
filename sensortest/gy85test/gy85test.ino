@@ -1,11 +1,9 @@
-// Arduino code and libraries are available to download - link below the video.
-
 // Output for viewing with Serial Oscilloscope: accX,accY,magZ // gyrX, gyrY and gyrZ are commented out
 
 /*
 Arduino     MARG GY-85
-  A5            SCL
-  A4            SDA
+  SCL            SCL
+  SDA            SDA
   3.3V          VCC
   GND           GND
 */ 
