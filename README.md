@@ -69,7 +69,11 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 5. Ordered an IMU sensor (GY-85) which has all the sensors required for determining the orientation of an object.
 
-6. Tested code with GY-85 and Arduino. Able to receive values for roll, pitch and yaw. Looks good to go into the gadget. One issue is that it needs to be calibrated at the beginning of a power cycle. 
+6. Tested code with GY-85 and Arduino. Able to receive values for roll, pitch and yaw. Looks good to go into the gadget. One issue is that it needs to be calibrated at the beginning of a power cycle.
+
+7. Ordered a HX711 wheatstone bridge amplifier. Interfaced and tested it with the load cell from the luggage weigh scale. The update rate of the circuit is 10 reading per second which is less than expected.
+
+8. Build a clamp that can be used single handedly.
 
 # Next step
 
