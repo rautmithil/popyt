@@ -2,15 +2,20 @@
 #include <ADXL345.h>  // ADXL345 Accelerometer Library
 #include <HMC5883L.h> // HMC5883L Magnetometer Library
 #include <ITG3200.h>
+#include <HX711.h>
+
+// Connections on board
+HX711 scale(A1, A0); // Weight scale sensor
 
 //Variables of each on-board sensor
-ADXL345 acc; //variable adxl is an instance of the ADXL345 library
-HMC5883L compass; //variable adxl is an instance of the HMC5883L library
-ITG3200 gyro = ITG3200(); //variable adxl is an instance of the ITG3200 library
+ADXL345 acc; //variable acc is an instance of the ADXL345 library
+HMC5883L compass; //variable compass is an instance of the HMC5883L library
+ITG3200 gyro = ITG3200(); //variable gyro is an instance of the ITG3200 library
+
+//Physique parameters
+int height = 180;
 
 //Variables for parameters
-
-
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -53,6 +58,8 @@ Serial.print(pitchdeg);  // calculated angle in degrees
 Serial.print(",");
 Serial.print(headingDegrees);
 Serial.println(",");
+
+
 
 
 }
@@ -107,4 +114,20 @@ void calculate_gyro(){
   anglegy = anglegy + (gx_rate * looptime);
   anglegz = anglegz + (gz_rate * looptime);
 }
+
+void measure_orientation(){
+  
+}
+void measure_force(){
+  scale.read();
+}
+
+void count_reps(){
+  
+}
+
+void display_reps(){
+  
+}
+
 

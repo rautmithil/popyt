@@ -81,6 +81,8 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 2. Look for a solution to the calibration problem.
 
+3. Make a PCB.
+
 Team member: Mithil Raut
 
 mithil@bu.edu
