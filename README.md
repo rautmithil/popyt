@@ -75,13 +75,22 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 8. Build a clamp that can be used single handedly.
 
+9. Make a PCB.
+
+10. Create a box with acrylic from the tinker lab. Make place for hosting the sensors and the Arduino.
+
+11. Connect a screen and display data.
+
+12. Interface with an Android application.
+
 # Next step
 
-1. Create a box with acrylic from the tinker lab. Make place for hosting the sensors and the Arduino.
+1. Look for a solution to the calibration problem.
 
-2. Look for a solution to the calibration problem.
+2. Complete the program for basic functions such as count reps.
 
-3. Make a PCB.
+3. Test those functions.
+
 
 Team member: Mithil Raut
 
