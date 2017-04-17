@@ -75,13 +75,27 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 8. Build a clamp that can be used single handedly.
 
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/25096512/80c51c3c-236e-11e7-999b-ae876b7fa8f0.png)
+
 9. Make a PCB.
+
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/25096186/32125362-236d-11e7-9753-1022bc27547a.png)
 
 10. Create a box with acrylic from the tinker lab. Make place for hosting the sensors and the Arduino.
 
 11. Connect a screen and display data.
 
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/25096306/b21f5974-236d-11e7-80ec-9a43040e935b.jpg)
+
 12. Interface with an Android application.
+
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/25096307/b21ff3b6-236d-11e7-8487-f32d83885991.png)
+
+13. Calibrate the weight sensor
+
+![alt tag](https://cloud.githubusercontent.com/assets/13759991/25096308/b222be48-236d-11e7-8367-b15ca236ffcf.jpg)
+
+Refer calibration data updated in docs.
 
 # Next step
 
