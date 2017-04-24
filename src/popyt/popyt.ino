@@ -30,13 +30,16 @@ float aoffsetX, aoffsetY, aoffsetZ;
 float goffsetX, goffsetY, goffsetZ;
 unsigned long time, looptime;
 float weight;
+static float threshold = 0.0;
+static int RepCount = 0;
+static boolean RepCountFlag = true;
 
 //Physique parameters
 int height = 180;
 
 //Variables for parameters
 void setup() {
-  // put your setup code here, to run once:
+
   //Output for HX711 module
   pinMode(A0,OUTPUT);
   digitalWrite(A0,LOW);
@@ -47,6 +50,9 @@ void setup() {
   pinMode(8,OUTPUT);
   digitalWrite(8,HIGH);
   Serial.begin(115200);
+  lcd.begin(20,4);
+
+  input_force();
   calibrate_force();
   acc.powerOn();
   compass = HMC5883L();
@@ -73,6 +79,7 @@ void setup() {
       aoffsetZ = (az + aoffsetZ) / 2;
     }
   }
+  lcd.clear();
 }
 
 void loop() {
@@ -80,16 +87,18 @@ calculate_accel();
 calculate_compass();
 
 //calculate_gyro();
+//Print data
 
-Serial.print(rolldeg);
-Serial.print(",");
-Serial.print(pitchdeg);  // calculated angle in degrees
-Serial.print(",");
-Serial.print(headingDegrees);
-Serial.println(",");
-delay(1000);
-measure_force();
-
+/*lcd.print(rolldeg);
+lcd.print(",");
+lcd.print(pitchdeg);  // calculated angle in degrees
+lcd.print(",");
+lcd.print(headingDegrees);
+lcd.println(",");*/
+//lcd.setCursor(0,2);
+//Serial.print(RepCount);
+count_reps();
+delay(100);
 }
 
 
@@ -147,18 +156,24 @@ void calculate_gyro(){
 
 
 
-void measure_force(){
+float measure_force(){
   //Serial.print("one reading:\t");
   //Serial.print(scale.get_units(), 1);
   //Serial.print("\t| Weight:\t");
   float wei = scale.get_units(10);
-  float weight = floor((float)(37.273 * (float)(wei)) - 0.48)/1000;
+  float weight = floor((float)(37.273 * (float)(wei)))/1000;
   //float weight = (scale.get_units(5));
-  Serial.print(weight);
-  Serial.print("          ");
+  Serial.println(weight);
+  Serial.println("          ");
   lcd.clear();
-  lcd.setCursor(2,2);
+  lcd.setCursor(0,0);
+  lcd.print("Force: ");
   lcd.print(weight);
+  lcd.setCursor(0,2);
+  lcd.print("Reps: ");
+  lcd.print(RepCount);
+  //lcd.print(",");
+  return weight;
   scale.power_down();              // put the ADC in sleep mode
   delay(100);
   scale.power_up();
@@ -167,7 +182,20 @@ void measure_force(){
 
 
 void count_reps(){
+  if(measure_force() > (float)threshold && RepCountFlag == true){
+    RepCount ++;
+    Serial.print("Reps: ");
+    Serial.println(RepCount);
+    lcd.setCursor(0,2);
+    lcd.print("Reps: ");
+    lcd.print(RepCount);
+    while(measure_force() > (float)threshold){
+      lcd.setCursor(0,2);
+      lcd.print("Reps: ");
+      lcd.print(RepCount);}
+  }
   
+  //return RepCount;
 }
 
 
@@ -175,6 +203,19 @@ void display_reps(){
   
 }
 
+void input_force(){
+  Serial.print("Input force in   Kg");
+  lcd.print("Input force in   Kg");
+  while(Serial.available() == 0){}
+  if (Serial.available() > 0) {
+    threshold = Serial.parseInt();
+    Serial.print(threshold);
+    lcd.setCursor(0,0);
+    lcd.print("Received force:");
+    lcd.print(threshold);
+    delay(2000);
+  }
+}
 
 void calibrate_force(){
   Serial.println("HX711 Demo");
