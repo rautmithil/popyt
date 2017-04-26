@@ -33,6 +33,7 @@ float weight;
 static float threshold = 0.0;
 static int RepCount = 0;
 static boolean RepCountFlag = true;
+float hori_angle, vert_angle;
 
 //Physique parameters
 int height = 180;
@@ -85,7 +86,16 @@ void setup() {
 void loop() {
 calculate_accel();
 calculate_compass();
-
+//Serial.print(rolldeg);
+//Serial.print(",");
+calc_angle();
+Serial.print("Angle Vert: ");
+Serial.print(vert_angle);
+Serial.println(" , ");
+//Serial.print(pitchdeg);
+//Serial.print(",");
+//Serial.print(headingDegrees);
+//Serial.println(",");
 //calculate_gyro();
 //Print data
 
@@ -98,6 +108,9 @@ lcd.println(",");*/
 //lcd.setCursor(0,2);
 //Serial.print(RepCount);
 count_reps();
+lcd.setCursor(0,4);
+lcd.print("Threshold: ");
+lcd.print(threshold);
 delay(100);
 }
 
@@ -162,15 +175,23 @@ float measure_force(){
   //Serial.print("\t| Weight:\t");
   float wei = scale.get_units(10);
   float weight = floor((float)(37.273 * (float)(wei)))/1000;
+  if(weight<0)
+  {
+    weight = 0.0;
+  }
   //float weight = (scale.get_units(5));
-  Serial.println(weight);
+  Serial.print("Force: ");
+  Serial.print(weight);
   Serial.println("          ");
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("Force: ");
   lcd.print(weight);
+  calc_angle();
   lcd.setCursor(0,2);
   lcd.print("Reps: ");
+  Serial.print("Reps: ");
+  Serial.println(RepCount);
   lcd.print(RepCount);
   //lcd.print(",");
   return weight;
@@ -182,7 +203,7 @@ float measure_force(){
 
 
 void count_reps(){
-  if(measure_force() > (float)threshold && RepCountFlag == true){
+  if(measure_force() > (float)threshold){
     RepCount ++;
     Serial.print("Reps: ");
     Serial.println(RepCount);
@@ -198,8 +219,13 @@ void count_reps(){
   //return RepCount;
 }
 
-
-void display_reps(){
+void calc_angle(){
+  vert_angle = rolldeg*(-1);
+  lcd.setCursor(0,1);
+  lcd.print("Angle Vert: ");
+  lcd.print(vert_angle);
+  //hori_angle = 
+  //Serial.print(hori_angle);
   
 }
 
@@ -208,7 +234,7 @@ void input_force(){
   lcd.print("Input force in   Kg");
   while(Serial.available() == 0){}
   if (Serial.available() > 0) {
-    threshold = Serial.parseInt();
+    threshold = Serial.parseFloat();
     Serial.print(threshold);
     lcd.setCursor(0,0);
     lcd.print("Received force:");
