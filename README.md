@@ -97,13 +97,15 @@ The structure consists of a Grip, the gadget and the resistance bands. The grip 
 
 Refer calibration data updated in docs.
 
-# Next step
+14.  Complete the program for basic function of counting the number of reps.
 
-1. Look for a solution to the calibration problem.
+15.  Implement a function for measuring the angle of the exercise.
 
-2. Complete the program for basic functions such as count reps.
+16. Interface with an android application to input the threshold force.
 
-3. Test those functions.
+![lcd_display](https://cloud.githubusercontent.com/assets/13759991/25774478/4a297800-325d-11e7-8e17-b19a903841f7.jpg)
+
+
 
 
 Team member: Mithil Raut
