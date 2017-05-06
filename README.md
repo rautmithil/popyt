@@ -106,9 +106,12 @@ Refer calibration data updated in docs.
 ![lcd_display](https://cloud.githubusercontent.com/assets/13759991/25774478/4a297800-325d-11e7-8e17-b19a903841f7.jpg)
 
 
-Final video
+Final setup  and video
 
 https://drive.google.com/file/d/0B4X2bi7UNs5bVlZYTXJ2TGg3cTQ/view?usp=sharing
+
+![final hardware](https://cloud.githubusercontent.com/assets/13759991/25774560/8610e068-325f-11e7-85c7-a91d6b4389b7.jpg)
+
 
 Team member: Mithil Raut
 
